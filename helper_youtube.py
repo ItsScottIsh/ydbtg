@@ -14,11 +14,11 @@ dp = Dispatcher(bot)
 
 @dp.message_handler(commands=['start'])
 async def cmd_answer(message: types.Message):
-      await message.answer('<b>👋 Привіт, я YouTube Помічник.</b> \n <b>📥 Ви зможете завантажити відео з YouTube.</b> \n <b>🔗 Надішліть посилання на відео.</b>', parse_mode='HTML')
+      await message.answer('<b>👋 Привет, я YouTube бот.</b> \n <b>📥 Загрузка видео с YouTube.</b> \n <b>🔗 Скинь ссылку с ютуб.</b>', parse_mode='HTML')
       
 @dp.message_handler(commands=['help'])
 async def cmd_answer(message: types.Message):
-    await message.answer("⁉️<b> Якщо у вас є проблеми.</b> \n✉️ <b>Напишіть мені</b> <a href='https://t.me/nikit0ns'>@nikit0ns</a><b>.</b>", disable_web_page_preview=True, parse_mode="HTML")
+    await message.answer("⁉️<b> Проблемы?.</b> \n✉️ <b>Напиши мне</b> <a href='https://t.me/ItsScottIsh'>@ItsScottIsh</a><b>.</b>", disable_web_page_preview=True, parse_mode="HTML")
       
 
 @dp.message_handler()
@@ -40,13 +40,13 @@ async def cmd_answer(message: types.Message):
             keyboard.add(types.InlineKeyboardButton(text="Завантажити", callback_data="download"))
             await message.answer_photo(f'{picture}', caption=f"📹 <b>{title}</b> <a href='{url}'>→</a> \n" #Title#
                                  f"👤 <b>{author}</b> <a href='{channel}'>→</a> \n" #Author Of Channel# 
-                                 f"⚙️ <b>Розширення —</b> <code>{resolution}</code> \n" ##
-                                 f"🗂 <b>Відео важить —</b> <code>{round(file_size * 0.000001, 2)}MB</code> \n" #File Size#
-                                 f"⏳ <b>Тривалість —</b> <code>{str(datetime.timedelta(seconds=length))}</code> \n" #Length#
-                                 f"🗓 <b>Дата публікації —</b> <code>{date_published}</code> \n" #Date Published#
-                                 f"👁 <b>Перегляди —</b> <code>{views:,}</code> \n", parse_mode='HTML', reply_markup=keyboard) #Views#
+                                 f"⚙️ <b>Разрешение видео—</b> <code>{resolution}</code> \n" ##
+                                 f"🗂 <b>Вем видео—</b> <code>{round(file_size * 0.000001, 2)}MB</code> \n" #File Size#
+                                 f"⏳ <b>Длительность —</b> <code>{str(datetime.timedelta(seconds=length))}</code> \n" #Length#
+                                 f"🗓 <b>Дата публикации —</b> <code>{date_published}</code> \n" #Date Published#
+                                 f"👁 <b>Просмотров —</b> <code>{views:,}</code> \n", parse_mode='HTML', reply_markup=keyboard) #Views#
       else:
-            await message.answer(f"❗️<b>Це не схоже на посилання!</b>", parse_mode='HTML')
+            await message.answer(f"❗️<b>Неправильная ссылка!</b>", parse_mode='HTML')
             
             
 
@@ -62,8 +62,8 @@ async def button_download(call: types.CallbackQuery):
       with open(f"{call.message.chat.id}/{call.message.chat.id}_{yt.title}", 'rb') as video:
             await bot.send_video(call.message.chat.id, video, caption=f"📹 <b>{title}</b> \n" #Title#
                                     f"👤 <b>{author}</b> \n\n" #Author Of Channel#
-                                    f"⚙️ <b>Розширення —</b> <code>{resolution}</code> \n"
-                                    f"📥 <b>Завантажено за допомогою @Helper_YouTube_Bot</b>", parse_mode='HTML')
+                                    f"⚙️ <b>Разрешение—</b> <code>{resolution}</code> \n"
+                                    f"📥 <b>by ItsScottIsh</b>", parse_mode='HTML')
             os.remove(f"{call.message.chat.id}/{call.message.chat.id}_{yt.title}")
 
 
