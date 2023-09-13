@@ -1,1 +1,1 @@
-TOKEN = '...' #Сюда вы пишите свой токен. Узнать его можно в @BotFather
+TOKEN = '5141216477:AAG3isPHO0g9igojZ7WybkIpjjVtZvJxVDM' #Сюда вы пишите свой токен. Узнать его можно в @BotFather
